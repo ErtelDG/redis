@@ -4,18 +4,76 @@
 <head>
   <meta charset="UTF-8" />
   <title>Voting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <h1>Stimme ab!</h1>
-  <button onclick="vote('A')">A</button>
-  <button onclick="vote('B')">B</button>
-  <button onclick="vote('C')">C</button>
+<body class="bg-gray-50 text-gray-900">
+  <div class="mx-auto max-w-screen-md px-4 py-8 sm:px-6 lg:px-8">
+    <div class="max-w-prose">
+      <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
+        Wo sollen wir hingehen?
+      </h2>
 
-  <h2>Ergebnisse:</h2>
-  <div>A: <span id="a">0%</span></div>
-  <div>B: <span id="b">0%</span></div>
-  <div>C: <span id="c">0%</span></div>
+      <p class="mt-4 text-gray-700">
+        Stimme einmal für A, B oder C ab. Das Ergebnis wird live aktualisiert, sobald jemand eine Auswahl trifft.
+      </p>
+    </div>
+
+    <form action="#" class="mt-6 space-y-4">
+      <fieldset class="space-y-4">
+        <legend class="sr-only">Wähle eine Option</legend>
+
+        <!-- Option A -->
+        <div class="flex items-center gap-4">
+          <label for="OptionA"
+            class="relative block flex-1 overflow-hidden rounded border border-gray-300 px-4 py-2 shadow-sm cursor-pointer">
+            <div id="barA" class="absolute inset-y-0 left-0 rounded bg-gray-100" style="width: 0%"></div>
+
+            <div class="relative flex items-center gap-4">
+              <input type="radio" id="OptionA" name="Poll1" class="size-5 border-gray-300 shadow-sm"
+                onclick="vote('A')" />
+              <span class="font-medium text-gray-900"> Option A </span>
+            </div>
+          </label>
+          <span id="a" class="text-gray-700">0%</span>
+        </div>
+
+        <!-- Option B -->
+        <div class="flex items-center gap-4">
+          <label for="OptionB"
+            class="relative block flex-1 overflow-hidden rounded border border-gray-300 px-4 py-2 shadow-sm cursor-pointer">
+            <div id="barB" class="absolute inset-y-0 left-0 rounded bg-gray-100" style="width: 0%"></div>
+
+            <div class="relative flex items-center gap-4">
+              <input type="radio" id="OptionB" name="Poll1" class="size-5 border-gray-300 shadow-sm"
+                onclick="vote('B')" />
+              <span class="font-medium text-gray-900"> Option B </span>
+            </div>
+          </label>
+          <span id="b" class="text-gray-700">0%</span>
+        </div>
+
+        <!-- Option C -->
+        <div class="flex items-center gap-4">
+          <label for="OptionC"
+            class="relative block flex-1 overflow-hidden rounded border border-gray-300 px-4 py-2 shadow-sm cursor-pointer">
+            <div id="barC" class="absolute inset-y-0 left-0 rounded bg-gray-100" style="width: 0%"></div>
+
+            <div class="relative flex items-center gap-4">
+              <input type="radio" id="OptionC" name="Poll1" class="size-5 border-gray-300 shadow-sm"
+                onclick="vote('C')" />
+              <span class="font-medium text-gray-900"> Option C </span>
+            </div>
+          </label>
+          <span id="c" class="text-gray-700">0%</span>
+        </div>
+      </fieldset>
+    </form>
+
+    <p class="mt-4 text-sm text-gray-700">
+      Abstimmung endet am <time datetime="2025-10-31">31. Oktober 2025</time>
+    </p>
+  </div>
 
   <script src="client.js"></script>
 </body>
